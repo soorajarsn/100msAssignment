@@ -112,8 +112,8 @@ $darkBlue:rgb(42, 45, 62);
                         }
                         &:hover{
                             transform: scale(1.01);
-                            transition: transform,box-shadow 200ms ease-in-out;
-                            box-shadow: 0 0 .3rem 0 $darkBlue;
+                            transition: transform,box-shadow 100ms ease-in-out;
+                            box-shadow: 0 0 .5rem 0 $darkBlue;
                         }
                     }
                 }
