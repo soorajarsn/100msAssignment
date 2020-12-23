@@ -1,7 +1,7 @@
 import { GET_CHARACTER_REQUEST, GET_CHARACTER_SUCCESS, GET_CHARACTER_ERROR } from "./characterConsts"
 
 const initialState = {
-    characters = [],
+    characters: [],
     loading:false,
     error: ''
 }
@@ -13,6 +13,8 @@ const characterReducer = (state = initialState, action) => {
             return {laoding:false, characters: action.payload, error:''};
         case GET_CHARACTER_ERROR:
             return {...state, loading:false, error:action.payload};
+        default:
+            return state;
     }
 }
 export default characterReducer

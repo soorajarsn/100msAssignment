@@ -11,6 +11,7 @@ export const getCharacters = (endpoint) => {
         axios.get('https://www.breakingbadapi.com/api/'+endpoint)
         .then(response => {
             const data = response.data;
+            console.log(data);
             dispatch(getCharacterSuccess(data));
         })
         .catch(err => {
