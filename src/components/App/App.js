@@ -10,7 +10,7 @@ function App(props) {
       <Router>
         <Switch>
           <Route exact path="/" render={props => <Index {...props} />} />
-          <Route exact path="/:id" render={props => <CharacterDetails {...props} />} />
+          <Route exact path="/characterDetails/:id" render={props => <CharacterDetails {...props} />} />
         </Switch>
       </Router>
       {/* Portals here */}
