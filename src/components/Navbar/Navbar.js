@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
-function Navbar() {
+function Navbar(props) {
   const [searchFor, setSearchFor] = useState("");
   const handleSubmit = event => {
+    props.history.push('/?name='+searchFor.split(' ').join('+'));
     event.preventDefault();
   };
   return (
