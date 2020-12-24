@@ -1,6 +1,6 @@
 import React from "react";
-import FilterByCategory from './FilterByCategory';
-import Character from './CharacterCard';
+import FilterByCategory from "./FilterByCategory";
+import Character from "./CharacterCard";
 function CategoryFilter_and_Characters(props) {
   const pageNumber = parseInt(props.page);
   const queryStringParams = props.location.search.split("&");
@@ -35,20 +35,26 @@ function CategoryFilter_and_Characters(props) {
           <FilterByCategory {...props} />
         </div>
         <div className="page-content full-width flex flex-column align-center">
-          <div className="characters-container full-width">
-            {props.characters.map(character => (
-              <Character key={character.char_id} {...character} />
-            ))}
-          </div>
-          <div className="pagination flex align-center">
-            <button className="prev-page small-margin-right color-white center" onClick={gotoPrevPage} disabled={pageNumber == 1}>
-              <i className="fas fa-angle-left" />
-            </button>
-            <div className="current-page">{props.page}</div>
-            <button className="next-page small-margin-left color-white center" onClick={gotoNextPage} disabled={props.characters.length < 10}>
-              <i className="fas fa-angle-right" />
-            </button>
-          </div>
+          {props.characters.length > 0 ? (
+            <React.Fragment>
+              <div className="characters-container full-width">
+                {props.characters.map(character => (
+                  <Character key={character.char_id} {...character} />
+                ))}
+              </div>
+              <div className="pagination flex align-center">
+                <button className="prev-page small-margin-right color-white center" onClick={gotoPrevPage} disabled={pageNumber == 1}>
+                  <i className="fas fa-angle-left" />
+                </button>
+                <div className="current-page">{props.page}</div>
+                <button className="next-page small-margin-left color-white center" onClick={gotoNextPage} disabled={props.characters.length < 10}>
+                  <i className="fas fa-angle-right" />
+                </button>
+              </div>
+            </React.Fragment>
+          ) : (
+            <h1>Sorry, We don't find anything!!!</h1>
+          )}
         </div>
       </div>
     </div>
