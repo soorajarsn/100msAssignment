@@ -2,48 +2,60 @@ $lightGrey:rgb(235, 235, 235);
 $lightBlue:rgb(122, 176, 212);
 $white: white;
 $blue:rgb(1, 115, 178);
-.details-container{
-    margin-top:2rem;
-    @media (max-width:699px){
-        padding:0 .8rem;
+
+.details-container {
+    margin-top: 2rem;
+
+    @media (max-width:699px) {
+        padding: 0 .8rem;
     }
-    .container{
-        border:1px solid rgb(220,220,220);
+
+    .container {
+        border: 1px solid rgb(220, 220, 220);
     }
-    .quotes-and-img-container{
-        @media (min-width:700px){
-            display:flex;
+
+    .quotes-and-img-container {
+        @media (min-width:700px) {
+            display: flex;
             justify-content: space-between;
-            .character-info{
-                width:70%;
+
+            .character-info {
+                width: 70%;
             }
-            .character-img{
-                width:30%;
-            }
-        }
-        @media (min-width:1200px){
-            .character-info{
-                width:77%;
-            }
-            .character-img{
-                width:23%;
-                max-width:300px;
+
+            .character-img {
+                width: 30%;
             }
         }
-    }
-    .character-name{
-        color:#0173b2;
-        margin-top:.5rem;
-        position:relative;
-        right:.4rem;
-        @media (min-width:700px){
-            right:.6rem;
-        }
-        @media (min-width:1000px){
-            right:.8rem;
+
+        @media (min-width:1200px) {
+            .character-info {
+                width: 77%;
+            }
+
+            .character-img {
+                width: 23%;
+                max-width: 300px;
+            }
         }
     }
-    .character-name:before{
+
+    .character-name {
+        color: #0173b2;
+        margin-top: .5rem;
+        position: relative;
+        right: .4rem;
+
+        @media (min-width:700px) {
+            right: .6rem;
+        }
+
+        @media (min-width:1000px) {
+            right: .8rem;
+        }
+    }
+
+    .character-name:before {
         display: inline-block;
         content: "";
         width: 1.5rem;
@@ -53,74 +65,116 @@ $blue:rgb(1, 115, 178);
         margin-right: .3rem;
         transform: translateY(-0.3rem);
     }
-    .character-img{
-        width:100%;
-        height:22rem;
+
+    .character-img {
+        width: 100%;
+        height: 22rem;
         overflow: hidden;
-        img{
-            min-height:100%;
+
+        img {
+            min-height: 100%;
         }
     }
-    .quotes-container{
-        margin:1rem 0;
-        h2{
-            margin-left:1.8rem;
-            margin-bottom:.5rem;
+
+    .quotes-container {
+        margin: 1rem 0;
+
+        h2 {
+            margin-left: 1.8rem;
+            margin-bottom: .5rem;
         }
     }
-    .quotes{
-        margin:0 0 0 .5rem;
-        li{
+
+    .quotes {
+        margin: 0 0 0 .5rem;
+
+        li {
             line-height: 1.1rem;
-            margin:.2rem 0;
+            margin: .2rem 0;
         }
     }
-    .accordian-container{
-        .accordian{
-             background-color: $white;
-             border:none;
-             border-top:solid 2px $lightGrey;
-             cursor: pointer;
-             padding: 1.5rem 1rem;
-             width: 100%;
-             text-align: left;
-             outline: none;
-             transition: 0.4s;
-             color:$blue;
-             .active,&:hover{
-                 background:$lightBlue;
-             }
-            .btn-content{
-                display:flex;
+
+    .accordian-container {
+        .accordian {
+            background-color: $white;
+            border: none;
+            border-top: solid 2px $lightGrey;
+            cursor: pointer;
+            padding: 1.5rem 1rem;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            transition: 0.4s;
+            color: $blue;
+
+            .active,
+            &:hover {
+                background: $lightBlue;
+            }
+
+            .btn-content {
+                display: flex;
                 justify-content: space-between;
-                .drop-down{
-                    border:solid 2px $lightGrey;
-                    color:$blue;
+
+                .drop-down {
+                    border: solid 2px $lightGrey;
+                    color: $blue;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-size:.5rem;
-                    border-radius:100%;
-                    width:1.2rem;
-                    height:1.2rem;
-                    text-align:center;
+                    font-size: .5rem;
+                    border-radius: 100%;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    text-align: center;
                     background-color: rgb(229, 241, 247);
                 }
             }
         }
-        .active{
-             background:$lightBlue;
-         }
-         .panel{
-             max-height: 0;
-             text-align:left;
-             overflow: hidden;
-             transition: max-height 0.2s ease-out;
-             padding:0 .5rem;
-             background: rgb(229, 241, 247);
-             p{
-                 font-size:.94rem;
-             }
-         }
-     }
+
+        .active {
+            background: $lightBlue;
+        }
+
+        .panel {
+            max-height: 0;
+            text-align: left;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            padding: 0 .5rem;
+            background: rgb(229, 241, 247);
+
+            p {
+                font-size: .94rem;
+            }
+        }
+    }
+}
+
+.skeleton-loader {
+    background: #eaeaec -webkit-gradient(linear, left top, right top, color-stop(0, #eaeaec), color-stop(35%, #e6e4e4), color-stop(70%, #eaeaec), to(#eaeaec)) no-repeat;
+    animation: mini-image-loading-skeleton 2s cubic-bezier(.25, .46, .45, .94) infinite forwards;
+    height:5rem;
+    width:100%;
+}
+
+@keyframes image-loading-skeleton {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+
+}
+
+@keyframes mini-image-loading-skeleton {
+    0% {
+        background-position: -250px 0;
+    }
+
+    100% {
+        background-position: 250px 0;
+    }
 }
