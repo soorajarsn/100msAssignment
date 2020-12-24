@@ -1,19 +1,50 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { getCharacters } from "../../redux";
+import { connect } from "react-redux";
+import axios from "axios";
+function SkeletonLoader() {
+  return <div className="skeleton-loader"></div>;
+}
 function Quotes(props) {
+  const name = props.name.split(" ").join("+");
+  const [quotes, setQuotes] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("https://www.breakingbadapi.com/api/quote?author=" + name)
+      .then(response => {
+        setLoading(false);
+        setQuotes(response.data);
+      })
+      .catch(err => {
+        setLoading(false);
+      });
+  }, [name]);
   return (
-    <ul className="quotes xsmall-size-font">
-      <li>Funyuns are awesome.</li>
-      <li>Ooooooh, wire.</li>
-      <li>A robot?!</li>
-      <li>What good is being an outlaw when you have responsibilities.</li>
-      <li>You forgot your ice trays! YOU'RE GONNA NEED THE ICE TRAYS!</li>
-      <li>Yeah, and thanks, Daddy Warbucks, but that was before my housing situation went completely testicular on me, okay?</li>
-      <li>How am I supposed to live here now, huh? My whole house smells like toe cheese and dry cleaning.</li>
-      <li>We make poison for people who don’t care. We probably have the most unpicky customers in the world.</li>
-      <li>You don’t need a criminal lawyer. You need a criminal lawyer</li>
-      <li>Yeah, b****! Magnets!</li>
-    </ul>
+    <React.Fragment>
+      {/* if loading show loader, otherwise comments */}
+      {loading ? (
+        <SkeletonLoader />
+      ) : (
+        <React.Fragment>
+          {/* If there are quotes for this writer, show them, otherwise prompt user that this user don't have any quotes */}
+          {quotes.length > 0 ? (
+            <ul className="quotes xsmall-size-font">
+              {quotes.map(q => (
+                <li key={q.quote_id}>{q.quote}</li>
+              ))}
+            </ul>
+          ) : (
+            <h3 className="small-size-font">No Quotes found!!!</h3>
+          )}
+        </React.Fragment>
+      )}
+    </React.Fragment>
   );
 }
-export default Quotes;
+const mapStateToProps = state => ({ ...state.characters });
+const mapDispatchToProps = dispatch => ({
+  getCharacters: endpoint => dispatch(getCharacters(endpoint)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
