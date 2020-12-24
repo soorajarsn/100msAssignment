@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function Character(props) {
   return (
     <div className="character-card full-width">
@@ -25,7 +26,9 @@ function Character(props) {
           </table>
         </li>
         <li>
-          <button className="color-white bold-font small-size-font">View</button>
+          <Link to={"/characterDetails/"+props.char_id}>
+            <button className="color-white bold-font small-size-font">View</button>
+          </Link>
         </li>
       </ul>
       <div className="character-img">
