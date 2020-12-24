@@ -3,6 +3,7 @@ import "./Navbar.scss";
 function Navbar(props) {
   const [searchFor, setSearchFor] = useState("");
   const handleSubmit = event => {
+    setSearchFor("");
     props.history.push('/?name='+searchFor.split(' ').join('+'));
     event.preventDefault();
   };
