@@ -4,7 +4,7 @@ function Character(props) {
     <div className="character-card full-width">
       <ul className="character-info">
         <li>
-          <h2 className="character-name light-bold-font small-size-font">{props.name}</h2>
+          <h2 className="character-name semi-bold-font small-size-font">{props.name}</h2>
         </li>
         <li className="occupation-status">
           <table className="full-width small-size-font">

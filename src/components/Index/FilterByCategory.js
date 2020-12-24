@@ -13,7 +13,7 @@ function FilterByCategory(props) {
   return (
     <div className="filterby-section center">
       <div className="container flex align-center justify-space-between full-width">
-        <h2 className="light-bold-font small-size-font small-margin-left">Filter By</h2>
+        <h2 className="semi-bold-font small-size-font small-margin-left">Filter By</h2>
         <select value={category} onChange={handleCatgoryChange} className="small-margin-right">
           <option value=""> Category</option>
           <option value="Breaking+Bad">Breaking Bad</option>
