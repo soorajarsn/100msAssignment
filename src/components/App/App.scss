@@ -1,3 +1,4 @@
+// theming;
 body{
     padding:0;
     margin:0;
@@ -12,23 +13,11 @@ h1,h2,h3,h4,h5,p{
 .light-font{
     font-weight: 300;
 }
-.regular-font{
-    font-weight: 400;
-}
 .semi-bold-font{
     font-weight: 500;
 }
 .bold-font{
     font-weight: 600;
-}
-.large-size-font{
-    font-size:2rem;
-    @media (min-width:700px){
-        font-size:2.1rem;
-    }
-    @media (min-width:1000px){
-        font-size:2.2rem;
-    }
 }
 .medium-size-font{
     font-size:1.5rem;
@@ -37,15 +26,6 @@ h1,h2,h3,h4,h5,p{
     }
     @media (min-width:1000px){
         font-size:1.7rem;
-    }
-}
-.regular-size-font{
-    font-size:1.2rem;
-    @media (min-width:700px){
-        font-size:1.25rem;
-    }
-    @media (min-width:1000px){
-        font-size:1.28rem;
     }
 }
 .small-size-font{
@@ -249,20 +229,8 @@ h1,h2,h3,h4,h5,p{
 .color-white{
     color:rgb(255,255,255);
 }
-.color-darkBlue{
-    color:#14171d;
-}
-.color-grey{
-    color:#dfdfdf;
-}
-.color-darkGrey{
-    color:#898585;
-}
-.color-lightGrey{
-    color:#f9f9f9;
-}
-.background-lightgrey{
-    background: #f9f9f9;
+.color-blue{
+    color:#0173b2;
 }
 .center{
     display: flex;
@@ -286,7 +254,4 @@ h1,h2,h3,h4,h5,p{
 }
 .full-width{
     width:100%;
-}
-.full-height{
-    height:100%;
 }
