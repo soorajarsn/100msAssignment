@@ -4,7 +4,8 @@ import Navbar from "../Navbar/Navbar";
 import { getCharacters } from "../../redux";
 import { connect } from "react-redux";
 import qs from "qs";
-import CategoryFilter_and_Characters from './Category_Filter_and_Characters';
+import CategoryFilter_and_Characters from "./Category_Filter_and_Characters";
+import Loader from "../Loader/Loader";
 const constructQueryString = queryObject => {
   let offset = 0;
   let queryString = "?limit=10";
@@ -27,14 +28,14 @@ function Index(props) {
   useEffect(() => {
     window.scrollTo(0, 0); //to scroll at the top
     const queryString = constructQueryString(queryObject);
-    console.log('getting from endpoint '+queryString);
+    console.log("getting from endpoint " + queryString);
     props.getCharacters("characters" + queryString);
   }, [page, name, category]); //run this effect whenever any of page, name or category changes
 
   return (
     <React.Fragment>
       <Navbar {...props} />
-      <CategoryFilter_and_Characters {...props} page={page || 1} />
+      {props.loading ? <Loader /> : <CategoryFilter_and_Characters {...props} page={page || 1} />}
     </React.Fragment>
   );
 }
